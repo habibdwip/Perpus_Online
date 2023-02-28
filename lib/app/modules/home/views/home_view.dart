@@ -8,14 +8,40 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('HomeView'),
-        centerTitle: true,
-      ),
       body: Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Selamat datang di',
+              style: TextStyle(fontSize: 20),
+            ),
+            Text(
+              'Perpus Online',
+              style: TextStyle(fontSize: 40),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Text(
+              'Silahkan login sebagai',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                    onPressed: () => Get.toNamed('/staff'),
+                    child: Text("Staff")),
+                ElevatedButton(
+                    onPressed: (() => Get.toNamed('/siswa')),
+                    child: Text("Siswa")),
+              ],
+            )
+          ],
         ),
       ),
     );
